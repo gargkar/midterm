@@ -16,19 +16,25 @@ import java.util.Scanner;
  *
  * @author sivagamasrinivasan
  */
-public class Days {
 
-    /**
-     * @param args the command line arguments
-     */
+import days.Weekdays.Day;
+
+public class Days {
     public static void main(String[] args) {
-         
-    Scanner in =new Scanner(System.in);
-    System.out.println("Enter the day number (one,two,three,four,five) in string");
-    String code = in.next();
-    Weekdays t= new Weekdays();
-    t.nameOfDay(code); 
-    }// TODO code application logic here
-    
-    
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the day number (1-7):");
+        int dayNum = in.nextInt();
+        in.close();
+
+        if(dayNum < 1 || dayNum > 7) {
+            System.out.println("Invalid day number. Please enter a number between 1 and 7.");
+            return;
+        }
+
+        Day day = Day.values()[dayNum - 1];
+        
+        Weekdays t = new Weekdays();
+        t.nameOfDay(day);
+    }
 }
+
